@@ -25,7 +25,7 @@ public class SwaggerConfig {
 
     }
     private ApiInfo getApiInfo(){
-        Contact contact = new Contact ("webtutplus","http://webtutpls.com","contact.webtutplus@gmail.com");
+        Contact contact = new Contact ("timiApplink","http://timiapplink.com.ng","contact.timiapplink@gmail.com");
         return new ApiInfoBuilder()
                 .title("Ecommerce Api")
                 .description("Documentation Ecommerce Api")
