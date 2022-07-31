@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -24,5 +25,12 @@ public class AuthenticationToken {
     @OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "user_id")
     private User user;
+
+    public AuthenticationToken(User user) {
+        this.user = user;
+        this.createdDated = new Date();
+        this.token = UUID.randomUUID().toString();
+    }
+
 
 }
