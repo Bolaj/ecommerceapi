@@ -1,6 +1,7 @@
 package com.timibolaji.ecommerce.api.service;
 
 import com.timibolaji.ecommerce.api.dto.ProductDto;
+import com.timibolaji.ecommerce.api.exceptions.ProductNotExistException;
 import com.timibolaji.ecommerce.api.model.Category;
 import com.timibolaji.ecommerce.api.model.Product;
 import com.timibolaji.ecommerce.api.repository.ProductRepository;
@@ -65,5 +66,13 @@ public class ProductService {
         productRepository.save(product);
 
 
+    }
+
+    public Product findById(Integer product_id) throws ProductNotExistException{
+       Optional<Product> optionalProduct= productRepository.findById(product_id);
+       if(optionalProduct.isEmpty()){
+           throw new ProductNotExistException("Product ID is Invalid: " + product_id);
+       }
+       return optionalProduct.get();
     }
 }

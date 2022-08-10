@@ -11,10 +11,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/category")
 public class CategoryController {
     @Autowired
     CategoryService categoryService;
+
+
     @PostMapping("/create")
     public ResponseEntity<ApiResponse> createCategory(@RequestBody Category category)
     {
